@@ -1,9 +1,7 @@
-<h2>WHAT IS THIS APP GONNA BE?!?</h2>
+<h2>Hello WORLD!</h2>
 
-<ul>
-  <%= @years.each do |year| %>
-    <li><%= year.year %></li>
-  <%= end %>
+<ul style="list-style-type:none;">
+  <% @years.each do |year| %>
+    <li><%= link_to year.year, year_path(year) %></li>
+  <% end %>
 </ul>
-
-<%=  %>
