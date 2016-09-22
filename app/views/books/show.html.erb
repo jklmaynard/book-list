@@ -23,3 +23,17 @@
   <%= f.hidden_field :book_ids, value: @book.id %>
   <p><%= f.submit %></p>
 <% end %>
+
+<% if @book.notes.any? %>
+  <ul>
+    <% @book.notes.each do |note| %>
+      <li><%= note.text %></li>
+    <% end %>
+  </ul>
+<% else %>
+<%= form_for [@book, @note] do |f| %>
+<%= f.label :text %>
+<%= f.text_field :text %>
+<p><%= f.submit 'Add a Note' %></p>
+  <% end  %>
+<% end %>
