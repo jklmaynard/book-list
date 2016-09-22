@@ -19,8 +19,3 @@ book2 = Book.new(title: "Old Filth", author: "Jane Gardam")
 book2.save
 book3 = Book.new(title: "Wolf Hall", author: "Hilary Mantel")
 book3.save
-
-def down
-  Book.delete_all
-  Year.delete_all
-end
