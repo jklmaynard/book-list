@@ -3,7 +3,7 @@
 <% if @year.books.any? %>
   <h4>Here are your books for this year: </h4>
   <ul>
-    <% year.books.each do |book| %>
+    <% @year.books.each do |book| %>
       <li><%= book.title %></li>
     <% end %>
   </ul>

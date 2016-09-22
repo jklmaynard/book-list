@@ -1,7 +1,13 @@
 <h2>This is the BOOK Hello World</h2>
 
-<ul style="list-style-type:none;">
-  <% @books.each do |book|  %>
-    <li><%= link_to book.title, book_path(book) %></li>
+<% @books.each do |book| %>
+  <% title_author = book.title + ' by, ' + book.author  %>
+  <h3><%= link_to title_author, book_path(book) %></h3>
+  <% if book.years.any? %>
+    <ul style="list-style-type:none">
+      <% book.years.each do |year| %>
+        <li><%= link_to year.year, year_path(year) %></li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
+<% end %>
