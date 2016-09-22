@@ -15,3 +15,11 @@
     <p><%= f.submit %></p>
   <% end %>
 <% end %>
+
+<h3>Add another year:</h3>
+<%= form_for @year do |f| %>
+  <%= f.label :year %>
+  <%= f.text_field :year %>
+  <%= f.hidden_field :book_ids, value: @book.id %>
+  <p><%= f.submit %></p>
+<% end %>

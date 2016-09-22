@@ -19,4 +19,12 @@
   <% end %>
 <% end %>
 
-<p><%= link_to "Add a book", new_book_path %></p>
+<h3>Add another book</h3>
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.hidden_field :year_ids, value: @year.id %>
+  <p><%= f.submit %></p>
+<% end %>
