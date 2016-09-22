@@ -1,1 +1,17 @@
 <h2><%= @book.title %></h2>
+
+<% if @book.years.any? %>
+  <ul>
+    <% @book.years.each do |year| %>
+      <li><%= link_to year.year, year_path(year) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>What year(s) did you read this book?</h3>
+  <%= form_for @year do |f| %>
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+    <%= f.hidden_field :book_ids, value: @book.id %>
+    <p><%= f.submit %></p>
+  <% end %>
+<% end %>
