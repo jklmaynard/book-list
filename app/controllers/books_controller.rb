@@ -11,7 +11,8 @@ class BooksController < ApplicationController
   end
   def new
     @book = Book.new
-    @year = Year.all
+    years = Year.all
+    @years = years.sort { |a,b| a.year <=> b.year }
   end
   def create
     @books = Book.all

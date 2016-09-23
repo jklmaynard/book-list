@@ -1,0 +1,8 @@
+<h2>Add a Book</h2>
+
+<h4>In order to add a book, first click on the year you read it</h4>
+<% @years.each do |year| %>
+<ul style='list-style-type:none;'>
+  <li><%= link_to year.year, year_path(year) %></li>
+</ul>
+<% end %>
