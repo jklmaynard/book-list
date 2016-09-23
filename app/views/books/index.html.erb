@@ -1,7 +1,7 @@
 <h2>Maynard's Years Through Books</h2>
 
 <% @books.each do |book| %>
-  <% title_author = book.title + ' by, ' + book.author  %>
+  <% title_author = book.title + ' by, ' + book.author_last_name %>
   <h3><%= link_to title_author, book_path(book) %></h3>
   <% if book.years.any? %>
     <ul style="list-style-type:none">

@@ -6,6 +6,7 @@ class YearsController < ApplicationController
   def show
     @year = Year.find(params[:id])
     @book = Book.new
+    @note = Note.new
   end
   def new
     @year = Year.new
