@@ -1,4 +1,4 @@
-<h2><%= @year.year %> with id: <%= @year.id %></h2>
+<h2><%= @year.year %></h2>
 
 <% if @year.books.any? %>
   <h4>Here are your books for this year: </h4>
@@ -7,21 +7,9 @@
       <li><%= link_to book.title, book_path(book) %></li>
     <% end %>
   </ul>
-<% else %>
-  <h4>Start adding books to this year!</h4>
-  <%= form_for @book do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :author_first_name %>
-    <%= f.text_field :author_first_name %>
-    <%= f.label :author_last_name %>
-    <%= f.text_field :author_last_name %>
-    <%= f.hidden_field :year_ids, value: @year.id %>
-    <p><%= f.submit %></p>
-  <% end %>
 <% end %>
 
-<h3>Add another book</h3>
+<h3>Add book</h3>
 <%= form_for @book do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
