@@ -1,16 +1,16 @@
 # YEAR seeds
+year4 = Year.new(year: "2003")
+year4.save
 year1 = Year.new(year: "2000")
 year1.save
 year2 = Year.new(year: "2001")
 year2.save
-year3 = Year.new(year: "2002")
-year3.save
-year4 = Year.new(year: "2003")
-year4.save
-year5 = Year.new(year: "2004")
-year5.save
 year6 = Year.new(year: "2005")
 year6.save
+year3 = Year.new(year: "2002")
+year3.save
+year5 = Year.new(year: "2004")
+year5.save
 
 # BOOKS seeds
 book1 = Book.new(title: "Sometimes A Great Notion", author_first_name: "Ken", author_last_name: "Kesey")

@@ -1,6 +1,7 @@
 class YearsController < ApplicationController
   def index
-    @years = Year.all
+    years = Year.all
+    @years = years.sort { |a,b| a.year <=> b.year }
     render :index
   end
   def show
