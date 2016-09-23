@@ -4,7 +4,7 @@ class YearsController < ApplicationController
     render :index
   end
   def show
-    @year = Year.find(params[:id])
+    @year = Year.friendly.find(params[:id])
     @book = Book.new
     @note = Note.new
   end

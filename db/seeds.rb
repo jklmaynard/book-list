@@ -13,9 +13,9 @@ year6 = Year.new(year: "2005")
 year6.save
 
 # BOOKS seeds
-book1 = Book.new(title: "Sometimes A Great Notion", author: "Ken Kesey")
+book1 = Book.new(title: "Sometimes A Great Notion", author_first_name: "Ken", author_last_name: "Kesey")
 book1.save
-book2 = Book.new(title: "Old Filth", author: "Jane Gardam")
+book2 = Book.new(title: "Old Filth", author_first_name: "Jane", author_last_name: "Gardam")
 book2.save
-book3 = Book.new(title: "Wolf Hall", author: "Hilary Mantel")
+book3 = Book.new(title: "Wolf Hall", author_first_name: "Hilary", author_last_name: "Mantel")
 book3.save
