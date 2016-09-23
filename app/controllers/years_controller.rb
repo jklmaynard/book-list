@@ -14,7 +14,7 @@ class YearsController < ApplicationController
     @books = Book.all
   end
   def create
-    @years = Year.all? { |e|  }
+    @years = Year.all
     @year = Year.new(year_params)
     @book = Book.find(@year.book_ids)
 
