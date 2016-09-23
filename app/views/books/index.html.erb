@@ -1,13 +1,7 @@
 <h2>Maynard's Years Through Books</h2>
+<%= link_to 'Add Book', new_book_path %>
 
 <% @books.each do |book| %>
-  <% title_author = book.title + ' by, ' + book.author_last_name %>
-  <h3><%= link_to title_author, book_path(book) %></h3>
-  <% if book.years.any? %>
-    <ul style="list-style-type:none">
-      <% book.years.each do |year| %>
-        <li><%= link_to year.year, year_path(year) %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <% book_info = book.author_last_name + ', ' + book.author_first_name + ': '%>
+  <h5> <%= book_info %> <%= link_to book.title, book_path(book) %></h5>
 <% end %>
