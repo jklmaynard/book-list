@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    books = Book.all
+    @books = books.sort { |a,b| a.author_last_name.downcase <=> b.author_last_name.downcase }
     render :index
   end
   def show
