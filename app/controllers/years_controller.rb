@@ -14,19 +14,26 @@ class YearsController < ApplicationController
     @books = Book.all
   end
   def create
+    @years = Year.all? { |e|  }
     @year = Year.new(year_params)
     @book = Book.find(@year.book_ids)
-      if @year.save
-        redirect_to book_path(@book)
-      else
-        render :new
+
+    @years.each do |year|
+      if @year.year === year.year
+        @year.destroy
+        redirect_to year_path(year) and return
       end
+    end
+
+    if @year.save
+      redirect_to book_path(@book)
+    else
+      render :new
+    end
   end
 
   private
-    def year_params
-      params.require(:year).permit(:year, :book_ids)
-    end
-
-
+  def year_params
+    params.require(:year).permit(:year, :book_ids)
+  end
 end
