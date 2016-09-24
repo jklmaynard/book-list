@@ -28,7 +28,7 @@ class YearsController < ApplicationController
     end
 
     if @year.save
-      redirect_to book_path(@book)
+      redirect_to '/'
     else
       render :new
     end
