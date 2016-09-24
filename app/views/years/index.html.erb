@@ -10,9 +10,11 @@
   </ol>
   <% end %>
 <% end %>
-<%= form_for @year do |f| %>
+<% if current_user %>
+  <%= form_for @year do |f| %>
   <%= f.label :year %>
   <%= f.text_field :year %>
   <p><%= f.submit %></p>
+  <% end %>
 <% end %>
 <%= link_to 'All Books', books_path %>
