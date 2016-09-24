@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_filter :authorize
   def index
     books = Book.all
     @books = books.sort { |a,b| a.author_last_name.downcase <=> b.author_last_name.downcase }
