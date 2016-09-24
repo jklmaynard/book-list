@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => '#years/index'
+  root :to => 'years#index'
 
   resources :years do
     resources :notes
