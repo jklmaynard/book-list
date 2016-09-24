@@ -19,3 +19,6 @@ book2 = Book.new(title: "Old Filth", author_first_name: "Jane", author_last_name
 book2.save
 book3 = Book.new(title: "Wolf Hall", author_first_name: "Hilary", author_last_name: "Mantel")
 book3.save
+
+user = User.new(name: "User", email: "test@test.com", password: "Password1234")
+user.save

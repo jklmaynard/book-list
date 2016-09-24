@@ -9,8 +9,9 @@
   </ul>
 <% end %>
 
-<h3>Add book</h3>
-<%= form_for @book do |f| %>
+<% if current_user  %>
+  <h3>Add book</h3>
+  <%= form_for @book do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :author_first_name %>
@@ -19,21 +20,19 @@
   <%= f.text_field :author_last_name %>
   <%= f.hidden_field :year_ids, value: @year.id %>
   <p><%= f.submit %></p>
-<% end %>
+  <% end %>
 
-<% if @year.notes.any? %>
+  <% if @year.notes.any? %>
   <ul>
     <% @year.notes.each do |note| %>
-      <li><%= note.text %></li>
+    <li><%= note.text %></li>
     <% end %>
   </ul>
-<% else %>
-<%= form_for [@year, @note] do |f| %>
-<%= f.label :text %>
-<%= f.text_field :text %>
-<p><%= f.submit 'Add a Note' %></p>
+  <% else %>
+  <%= form_for [@year, @note] do |f| %>
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+  <p><%= f.submit 'Add a Note' %></p>
   <% end  %>
+  <% end %>
 <% end %>
-
-<%= link_to 'Previous'%>
-<%= link_to 'Next'%>
