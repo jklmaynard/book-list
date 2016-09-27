@@ -21,7 +21,6 @@ class YearsController < ApplicationController
 
     @years.each do |year|
       if @year.year === year.year
-        year.book_ids = @year.book_ids
         @year.destroy
         redirect_to year_path(year) and return
       end
