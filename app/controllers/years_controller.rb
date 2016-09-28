@@ -21,7 +21,8 @@ class YearsController < ApplicationController
 
     @years.each do |year|
       if @year.year === year.year
-        @year.destroy
+        book_ids = year.book_ids.push(@book[0].id)
+        year.update({:book_ids => book_ids})
         redirect_to year_path(year) and return
       end
     end
