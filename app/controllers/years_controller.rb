@@ -6,9 +6,20 @@ class YearsController < ApplicationController
     render :index
   end
   def show
+    @years = Year.all
     @year = Year.friendly.find(params[:id])
     @book = Book.new
     @note = Note.new
+
+    # Create functionality for 'previous'/'next' in each year
+    @sorted_years = @years.sort { |a,b| a.year <=> b.year }
+    @host_index = @sorted_years.index(@year)
+    @previous_year = @sorted_years[@host_index - 1].year
+    if @host_index === @sorted_years.length - 1
+      @next_year = 'undefined'
+    else
+      @next_year = @sorted_years[@host_index + 1].year
+    end
   end
   def new
     @year = Year.new

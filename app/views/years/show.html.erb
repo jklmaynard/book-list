@@ -36,3 +36,10 @@
   <% end  %>
   <% end %>
 <% end %>
+
+<% if @host_index != 0 %>
+  <%= link_to "Previous Year", year_path(@previous_year) %>
+<% end %>
+<% if @host_index != (@sorted_years.length - 1) %>
+  <%= link_to "Next Year", year_path(@next_year) %>
+<% end %>
