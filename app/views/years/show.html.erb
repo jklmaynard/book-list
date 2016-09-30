@@ -13,29 +13,33 @@
   <div class="form-horizontal">
     <%= form_for @book, :html => {:class => 'form-horizontal center'} do |f| %>
     <div class="form-group">
-      <h4>Add book</h4>
-      <%= f.label :title %><br>
+      <div class="col-md-8">
+        <h4>Add book</h4>
+        <%= f.label :title %><br>
+      </div>
       <div class="col-md-8">
         <%= f.text_field :title, class: "form-control" %>
       </div>
     </div>
-
     <div class="form-group">
-      <%= f.label :author_first_name %><br>
+      <div class="col-md-8">
+        <%= f.label :author_first_name %><br>
+      </div>
       <div class="col-md-8">
         <%= f.text_field :author_first_name, class: "form-control" %>
       </div>
     </div>
-
     <div class="form-group">
-      <%= f.label :author_last_name %><br>
+      <div class="col-md-8">
+        <%= f.label :author_last_name %><br>
+      </div>
       <div class="col-md-8">
         <%= f.text_field :author_last_name, class: "form-control" %>
       </div>
     </div>
     <%= f.hidden_field :year_ids, value: @year.id %>
     <div class="form-group">
-      <div class="col-md-offset-4">
+      <div class="col-md-8">
         <%= f.submit :class => 'btn btn-primary btn-sm'%>
       </div>
     </div>
@@ -54,10 +58,14 @@
       <h4>Notes</h4>
       <%= form_for [@year, @note], :html => {:class => 'form-horizontal center'} do |f| %>
       <div class="form-group">
-        <%= f.text_area :text, rows: 10, class: "form-control" %>
+        <div class="col-md-8">
+          <%= f.text_area :text, rows: 10, class: "form-control" %>
+        </div>
       </div>
       <div class="form-group">
-        <p><%= f.submit 'Add a Note', :class =>'btn btn-primary btn-sm' %></p>
+        <div class="col-md-8">
+          <p><%= f.submit 'Add a Note', :class =>'btn btn-primary btn-sm' %></p>
+        </div>
       </div>
     </div>
   <% end  %>

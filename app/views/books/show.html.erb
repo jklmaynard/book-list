@@ -6,35 +6,47 @@
       <li><%= link_to year.year, year_path(year) %></li>
     <% end %>
   </ul>
-<% else %>
-  <h3>What year(s) did you read this book?</h3>
-  <%= form_for @year do |f| %>
-    <%= f.label :year %>
-    <%= f.text_field :year %>
-    <%= f.hidden_field :book_ids, value: @book.id %>
-    <p><%= f.submit %></p>
-  <% end %>
 <% end %>
 
-<h3>Add another year:</h3>
-<%= form_for @year do |f| %>
-  <%= f.label :year %>
-  <%= f.text_field :year %>
+<div class="form-horizontal">
+  <h3>Add another year:</h3>
+  <%= form_for @year, :html => {:class => 'form-horizontal-center'} do |f| %>
+  <div class="form-group">
+    <div class="col-md-8">
+      <%= f.label :year %>
+    </div>
+    <div class="col-md-8">
+      <%= f.text_field :year %>
+    </div>
+  </div>
   <%= f.hidden_field :book_ids, value: @book.id %>
-  <p><%= f.submit %></p>
-<% end %>
-
+  <div class="form-group">
+    <div class="col-md-8">
+      <p><%= f.submit :class => 'btn btn-primary btn-sm' %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
 <% if @book.notes.any? %>
-  <ul>
-    <% @book.notes.each do |note| %>
-      <li><%= note.text %></li>
-      <li><%= note.text %></li>
-    <% end %>
-  </ul>
+<ul>
+  <% @book.notes.each do |note| %>
+  <li><%= note.text %></li>
+  <% end %>
+</ul>
 <% else %>
-<%= form_for [@book, @note] do |f| %>
-<%= f.label :text %>
-<%= f.text_field :text %>
-<p><%= f.submit 'Add a Note' %></p>
+  <div class="form-horizontal">
+    <h4>Notes</h4>
+    <%= form_for [@book, @note], :html => {:class => 'form-horizontal-center'} do |f| %>
+    <div class="form-group">
+      <div class="col-md-8">
+        <%= f.text_area :text, rows: 10, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-8">
+        <p><%= f.submit 'Add a Note' %></p>
+      </div>
+    </div>
+  </div>
   <% end  %>
 <% end %>
