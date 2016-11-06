@@ -24,13 +24,15 @@ class BooksController < ApplicationController
       if @book.title === book.title
         year_ids = book.year_ids.push(@year.id)
         book.update({:year_ids => year_ids, :updated_at => Time.now })
-        @year.book_placement.push(@book.id)
+        book_placements = @year.book_placement.push(book.id)
+        @year.update({:book_placement => book_placements})
         redirect_to year_path(@year) and return
       end
     end
 
     if @book.save
-      @year.book_placement.push(@book.id)
+      book_placements = @year.book_placement.push(@book.id)
+      @year.update({:book_placement => book_placements})
       redirect_to year_path(@year)
     else
       render :new

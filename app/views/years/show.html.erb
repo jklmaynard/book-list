@@ -2,11 +2,12 @@
 
 <% if @year.books.any? %>
   <h4>Here are your books for this year: </h4>
-  <ul>
-    <% @year.books.each do |book| %>
+  <ol>
+    <% @year.book_placement.each do |index| %>
+      <% book = @year.books.find(index) %>
       <li><%= link_to book.title, book_path(book) %></li>
     <% end %>
-  </ul>
+  </ol>
 <% end %>
 
 <% if current_user  %>
