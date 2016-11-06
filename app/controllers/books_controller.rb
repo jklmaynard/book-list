@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     @books.each do |book|
       if @book.title === book.title
         year_ids = book.year_ids.push(@year[0].id)
-        book.update({:year_ids => year_ids})
+        book.update({:year_ids => year_ids, :updated_at => Time.now })
         redirect_to book_path(book) and return
       end
     end
