@@ -4,7 +4,8 @@
   <h3><%= link_to year.year, year_path(year) %></h3>
   <% if year.books.any? %>
   <ol>
-    <% year.books.each do |book| %>
+    <% year.book_placement.each do |index| %>
+      <% book = year.books.find(index) %>
       <li><%= link_to book.title, book_path(book) %></li>
     <% end %>
   </ol>
