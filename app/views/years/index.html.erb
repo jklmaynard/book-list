@@ -1,21 +1,37 @@
-<h2>Maynard's Years Through Books</h2>
+<div class="years-header col-md-12">
+  <h2>Maynard's Years Through Books</h2>
+</div>
 
-<% @years.each do |year| %>
-  <h3><%= link_to year.year, year_path(year) %></h3>
-  <% if year.books.any? %>
-  <ol>
-    <% year.book_placement.each do |index| %>
-      <% book = year.books.find(index) %>
-      <li><%= link_to book.title, book_path(book) %></li>
+<div class="years-container col-md-12">
+  <% @years.each do |year| %>
+  <div class="col-md-12">
+    <h3><%= link_to year.year, year_path(year) %></h3>
+  </div>
+    <% if year.books.any? %>
+    <div class="year-list-container col-md-12">
+      <ol>
+        <% year.book_placement.each do |index| %>
+          <% book = year.books.find(index) %>
+          <div class="book-list-item col-md-12">
+            <li><%= link_to book.title, book_path(book) %></li>
+          </div>
+        <% end %>
+      </ol>
+      <% end %>
     <% end %>
-  </ol>
-  <% end %>
-<% end %>
-<% if current_user %>
-  <%= form_for @year do |f| %>
-  <%= f.label :year %>
-  <%= f.text_field :year %>
-  <p><%= f.submit %></p>
-  <% end %>
-<% end %>
-<%= link_to 'All Books', books_path %>
+  </div>
+</div>
+<div class="new-year-container col-md-12">
+  <div class="new-year-form-container col-md-12">
+    <% if current_user %>
+    <%= form_for @year do |f| %>
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+    <p><%= f.submit %></p>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="all-books-link col-md-12">
+    <%= link_to 'All Books', books_path %>
+  </div>
+</div>

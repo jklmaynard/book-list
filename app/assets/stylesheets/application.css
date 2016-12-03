@@ -14,12 +14,54 @@
  *= require_self
  *= require bootstrap.min
  */
-
+/***********************************
+ELEMENTS
+***********************************/
 a {
   text-decoration: none;
   color: black;
 }
-
 a:hover {
   text-decoration: underline;
 }
+/***********************************
+YEARS INDEX
+***********************************/
+.book-list-item {
+  padding: 5px;
+}
+.book-list-item li {
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 375px) {
+  .years-header h2 {
+    font-size: 18px;
+  }
+  .years-container h3 {
+    font-size: 18px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***********************************
+YEARS INDEX
+***********************************/
+/***********************************
+YEARS INDEX
+***********************************/
